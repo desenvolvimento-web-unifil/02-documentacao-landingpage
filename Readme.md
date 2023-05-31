@@ -1,0 +1,1 @@
+Para rodar o CSS e JavaScript é necessário rodar os comandos 'npm install' e 'npm run dev' (ambos sem as aspas).
