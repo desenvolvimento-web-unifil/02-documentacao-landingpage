@@ -2,11 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+//Rota menu
 Route::get('/', function () {
-    return view('menu.menu');
-});
+   return view('menu.menu');
+})->name('menu');
 
+//Rotas jogos
+Route::get('jogos/roleta', function(){return view('jogos.roleta');})->name('roleta');
+Route::get('jogos/mines', function(){return view('jogos.mines');})->name('mines');
+Route::get('jogos/coinflip', function(){return view('jogos.coinflip');})->name('coinflip');
+
+
+//Rotas CRUD
 Route::get('users', [\App\Http\Controllers\UsersController::class, 'index']);
 Route::get('users/create', [\App\Http\Controllers\UsersController::class, 'create']);
 Route::post('users', [\App\Http\Controllers\UsersController::class, 'store']);

@@ -9,10 +9,24 @@
 </head>
 <body>
     <div class="header">
-        <h1>LuckyLane</h1>
+        <h1><a href="{{ route('menu') }}" class="float">
+            LuckyLane
+        </a></h1>
+        
     </div>
-    <div class="coluna-esquerda">
-        <h4>menu lateral</h4>
+    <div class="main-container">
+        <div class="roleta">
+            Roleta
+            <button><a href="{{ route('roleta') }}">Jogar</a></button>
+        </div>
+        <div class="mines">
+            Mines
+            <button><a href="{{ route('mines') }}">Jogar</a></button>
+        </div>
+        <div class="coin">
+            Coinflip
+            <button><a href="{{ route('coinflip') }}">Jogar</a></button>
+        </div>
     </div>
 </body>
 </html>
