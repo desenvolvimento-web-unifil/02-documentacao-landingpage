@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.cdnfonts.com/css/scripto');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-@import url('https://fonts.cdnfonts.com/css/scripto');
 
 * {
     margin: 0;
@@ -26,12 +26,15 @@ a {
 }
 
 .header {
+    display: flex;
     background-color: #303841;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 20px;
-    font-size: 25px;
+    font-size: 40px;
+    border: 1px solid red;
 }
 
 .header a {
@@ -39,6 +42,18 @@ a {
     color: #be3144;
     font-family: 'Scripto', sans-serif;
 }
+
+.header h1{
+    margin: 0;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 108px;
+}
+
 
 .main-container {
     display: flex;
@@ -51,7 +66,7 @@ a {
     border-radius: 15px;
 }
 
-.main-container h3{
+.main-container h3 {
     margin: 10px;
 }
 
@@ -82,73 +97,16 @@ button {
     border-radius: 10px;
     box-shadow: 2px 2px #888888;
     color: white;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #a32838;
     color: white;
-  }
-  
-  button:active {
+}
+
+button:active {
     background-color: #a32838;
     box-shadow: none;
     transform: translateY(2px);
     color: white;
-}
-.roulette {
-    width: 300px;
-    height: 300px;
-    border: 1px solid black;
-    border-radius: 50%;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .roulette-inner {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    position: relative;
-}
-  
-.roulette-number {
-    font-size: 30px;
-    line-height: 300px;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-  }
-  
-  /* Estilos para as opções de apostas */
-  .bet-options {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-  
-.bet-option {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-  /* Estilos para o botão de girar a roleta */
-  .spin-button {
-    display: block;
-    width: 150px;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
 }
