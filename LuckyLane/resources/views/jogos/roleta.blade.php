@@ -9,10 +9,23 @@
 </head>
 <body>
     <div class="header">
-        <h1>LuckyLane</h1>
+        <h1><a href="{{ route('menu') }}" class="float">
+                LuckyLane
+            </a></h1>
     </div>
-    <div class="coluna-esquerda">
-        <h4>menu lateral</h4>
+    <h1>Jogo de Roleta de Apostas</h1>
+  
+  <div class="roulette">
+    <div class="roulette-inner">
+      <span class="roulette-number">0</span>
     </div>
-</body>
+  </div>
+  
+  <div class="bet-options">
+    <div class="bet-option">Aposta 1</div>
+    <div class="bet-option">Aposta 2</div>
+    <div class="bet-option">Aposta 3</div>
+  </div>
+  
+  <button class="spin-button">Girar</button>
 </html>
