@@ -25,13 +25,6 @@
             </div>
         </div>
         <div class="card">
-            <img src="{{ Vite::asset('resources/images/mines.png') }}" alt="mines" style="width:100%">
-            <div class="container">
-                <h3>Mines</h3>
-                <button><a href="{{ route('mines') }}">Jogar</a></button>
-            </div>
-        </div>
-        <div class="card">
             <img src="{{ Vite::asset('resources/images/coin.png') }}" alt="coin" style="width:100%">
             <div class="container">
                 <h3>Coinflip</h3>

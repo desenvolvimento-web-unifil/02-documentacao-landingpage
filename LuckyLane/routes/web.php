@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Rota Menu
 Route::get('/', function () {
-    return view('welcome');
-});
+return view('menu.menu');
+})->name('menu');
+
+//Rotas jogos
+Route::get('jogos/roleta', function(){return view('jogos.roleta');})->name('roleta');
+Route::get('jogos/mines', function(){return view('jogos.mines');})->name('mines');
+Route::get('jogos/coinflip', function(){return view('jogos.coinflip');})->name('coinflip');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
