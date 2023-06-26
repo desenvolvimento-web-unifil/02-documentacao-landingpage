@@ -7,25 +7,81 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Roleta</title>
 </head>
+
 <body>
     <div class="header">
         <h1><a href="{{ route('menu') }}" class="float">
                 LuckyLane
             </a></h1>
     </div>
-    <h1>Jogo de Roleta de Apostas</h1>
-  
-  <div class="roulette">
-    <div class="roulette-inner">
-      <span class="roulette-number">0</span>
-    </div>
-  </div>
-  
-  <div class="bet-options">
-    <div class="bet-option">Aposta 1</div>
-    <div class="bet-option">Aposta 2</div>
-    <div class="bet-option">Aposta 3</div>
-  </div>
-  
-  <button class="spin-button">Girar</button>
+    <main>
+        <div class="fog"></div>
+        <article>
+            <div class="wrapper-roulette">
+                <ul>
+                    <li class="roulette-one"><span>-100 R$</span></li>
+                    <li class="roulette-two"><span>+200 R$</span></li>
+                    <li class="roulette-three"><span>+50 R$</span></li>
+                    <li class="roulette-four"><span>-300 R$</span></li>
+                    <li class="roulette-five"><span>-50 R$</span></li>
+                    <li class="roulette-six"><span>+500 R$</span></li>
+                    <li class="roulette-seven"><span>Playstation</span></li>
+                    <li class="roulette-eight"><span>Sua mae</span></li>
+                    <li class="roulette-nine"><span>- 400 R$</span></li>
+                    <li class="roulette-ten"><span>- 150 R$</span></li>
+                </ul>
+            </div>
+            <button class="start">Iniciar</button>
+        </article>
+    </main>
+    <script>
+        const $iniciar = document.querySelector('.start');
+        const $content = document.querySelectorAll('.wrapper-roulette ul li');
+
+        let n = 0; 
+        let stop;
+        let random;
+
+        function varRoulete() {
+        stop = 0;
+        random = Math.floor((Math.random() * 50) + 10);
+        };
+
+        $iniciar.addEventListener('click', event => { 
+        event.preventDefault(); 
+        varRoulete();
+        clearInterval(startRoulette);
+        startRoulette = setInterval(roulette, 100);
+        });  
+
+        var startRoulette;
+        
+        function roulette() { 
+            if(n < 10 && stop != random){
+                [].map.call($content, function(v, index, array) {
+                    v.classList.remove("active");
+                    array[n].classList.add("active"); 
+                    document.querySelector("body").classList.remove("active");
+                    v.classList.remove("select");
+                }) 
+                n++;
+                stop++; 
+            } else {
+                n = 0;
+                finish();
+            }
+        };  
+
+        function finish() {
+            if(stop == random) {
+                const $select = document.querySelector('.wrapper-roulette ul .active');
+                setTimeout(function(){
+                    $select.classList.add("select");
+                    document.querySelector("body").classList.add("active");
+                }, 500)
+            }
+        }
+        
+    </script>
+</body>
 </html>
