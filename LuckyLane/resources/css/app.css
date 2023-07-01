@@ -137,29 +137,44 @@ header h1 {
     color: #fff;
 }
 
+
+
 main .wrapper-roulette {
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
 }
 
-main .wrapper-roulette ul {
+html, body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    max-width: 100%;
+  }
+  
+  .main-container {
+    overflow-x: auto;
+  }
+
+  main .wrapper-roulette ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
     align-items: center;
-    width: 370px;
-    height: 370px;
-    background: #2e1a46;
-    border-radius: 100%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #8c1d1d, #000000);
+    border-radius: 50%;
+    margin-top: 200px;
 }
 
 main .wrapper-roulette ul li{
     display: flex;
     align-items: center;
     position: absolute;
-    width: 190px;
+    width: 390px;
     height: 70px;
     border-radius: 38px;
 }
@@ -181,13 +196,16 @@ main .wrapper-roulette ul li.active.select:after {
 }
 
 main .wrapper-roulette ul li.active {
-    background: #f9dc00;
+    background: #d3d6db;
     z-index: 1;
 }
 
+.main-container .wrapper-roulette ul.finished li.active {
+    background: transparent;
+  }
+
 main .wrapper-roulette ul li.active.select {
     transform: none;
-    background: #ffffff;
     font-size: 82px;
     width: 100%;
     height: 100%;
@@ -208,7 +226,6 @@ main .wrapper-roulette ul li.active.select span:after {
     top: 0;
     left: 0;
     background-size: 50%;
-    animation: roletaimg 2s;
 }
 
 li.roulette-one  {
@@ -258,7 +275,7 @@ button.start {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 300px;
+    margin: 100px;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 2px 2px #888888;

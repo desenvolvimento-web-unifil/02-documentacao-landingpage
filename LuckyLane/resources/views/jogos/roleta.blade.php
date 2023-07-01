@@ -19,16 +19,17 @@
         <article>
             <div class="wrapper-roulette">
                 <ul>
-                    <li class="roulette-one"><span>-100 R$</span></li>
-                    <li class="roulette-two"><span>+200 R$</span></li>
-                    <li class="roulette-three"><span>+50 R$</span></li>
-                    <li class="roulette-four"><span>-300 R$</span></li>
-                    <li class="roulette-five"><span>-50 R$</span></li>
-                    <li class="roulette-six"><span>+500 R$</span></li>
-                    <li class="roulette-seven"><span>Playstation</span></li>
-                    <li class="roulette-eight"><span>Sua mae</span></li>
-                    <li class="roulette-nine"><span>- 400 R$</span></li>
-                    <li class="roulette-ten"><span>- 150 R$</span></li>
+                    <li class="roulette-one"><span><b>-100 R$</b></span></li>
+                    <li class="roulette-two"><span><b>+200 R$</b></span></li>
+                    <li class="roulette-three"><span><b>+50 R$</b></span></li>
+                    <li class="roulette-four"><span><b>-300 R$</b></span></li>
+                    <li class="roulette-five"><span><b>-50 R$</b></span></li>
+                    <li class="roulette-six"><span><b>+500 R$</b></span></li>
+                    <li class="roulette-seven"><span><b>-200 R$</b></span></li>
+                    <li class="roulette-eight"><span><b>+400R$</b></span></li>
+                    <li class="roulette-nine"><span><b>-400 R$</b></span></li>
+                    <li class="roulette-ten"><span><b>-150 R$</b></span></li>
+
                 </ul>
             </div>
             <button class="start">Iniciar</button>
@@ -55,7 +56,7 @@
         });  
 
         var startRoulette;
-        
+
         function roulette() { 
             if(n < 10 && stop != random){
                 [].map.call($content, function(v, index, array) {
