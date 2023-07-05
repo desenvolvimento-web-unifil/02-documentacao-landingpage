@@ -37,10 +37,10 @@
                 LuckyLane
             </a>
         </h1>
-        <div id="saldo">Saldo: R$ 0</div>
+        
     </div>
-
-    <div class="container">
+    <div id="saldo">Saldo: R$ 0</div>
+    <div>
         <input type="number" id="saldoInput" placeholder="Digite o valor do saldo">
         <button onclick="adicionarSaldo()">Adicionar Saldo</button>
     </div>
@@ -64,7 +64,7 @@
 
             // Atualiza o valor exibido no elemento HTML
             $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
-            $saldoElement.style.color = 'white';
+            $saldoElement.style.color = 'black';
         }
 
         // Chama a função de atualizar saldo para exibir o saldo inicial
