@@ -43,6 +43,7 @@
     <div>
         <input type="number" id="saldoInput" placeholder="Digite o valor do saldo">
         <button onclick="adicionarSaldo()">Adicionar Saldo</button>
+        <button onclick="subtrairSaldo()">Subtrair Saldo</button>
     </div>
     
     <script>
@@ -80,6 +81,19 @@
             }
         }
 
+        function subtrairSaldo() {
+            const quantidade = parseInt(document.getElementById('saldoInput').value);
+            let saldoAtual = parseInt(localStorage.getItem('saldo')) || 0;
+
+            if (!isNaN(quantidade) && quantidade > 0 && saldoAtual >= quantidade) {
+                saldoAtual -= quantidade;
+                localStorage.setItem('saldo', saldoAtual);
+                document.getElementById('saldo').innerText = 'Saldo: R$ ' + saldoAtual;
+                atualizarSaldo();
+            }
+        }
+
+        //```html
         // Carrega o saldo armazenado no localStorage ao carregar a página
         window.onload = function() {
             const saldo = parseInt(localStorage.getItem('saldo')) || 0;
