@@ -57,77 +57,89 @@
         </article>
     </main>
     <script>
-        // Função para obter o saldo atual do usuário
         function getSaldo() {
-        // Faça uma requisição ao servidor para obter o saldo do usuário
-        // Aqui você pode substituir esta chamada com a lógica adequada para obter o saldo do usuário
-        const saldo = parseInt(localStorage.getItem('saldo')) || 0;// Exemplo de saldo fixo
+            const saldo = parseInt(localStorage.getItem('saldo')) || 0; // Exemplo de saldo fixo
 
-        return saldo;
+            return saldo;
         }
 
-        // Função para atualizar o saldo exibido no elemento
         function atualizarSaldo() {
-        const $saldoElement = document.getElementById('saldo'); // Elemento onde o saldo será exibido
+            const $saldoElement = document.getElementById('saldo');
 
-        // Obtém o saldo atual
-        const saldo = getSaldo();
+            const saldo = getSaldo();
 
-        // Atualiza o valor exibido no elemento HTML
-        $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
-        $saldoElement.style.color = 'black';
+            $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
+            $saldoElement.style.color = 'black';
         }
 
-        // Chama a função de atualizar saldo para exibir o saldo inicial
         atualizarSaldo();
 
         const $iniciar = document.querySelector('.start');
         const $content = document.querySelectorAll('.wrapper-roulette ul li');
 
-        let n = 0; 
+        let n = 0;
         let stop;
         let random;
 
         function varRoulete() {
-        stop = 0;
-        random = Math.floor((Math.random() * 50) + 10);
-        };
+            stop = 0;
+            random = Math.floor(Math.random() * 50) + 10;
+        }
 
-        $iniciar.addEventListener('click', event => { 
-        event.preventDefault(); 
-        varRoulete();
-        clearInterval(startRoulette);
-        startRoulette = setInterval(roulette, 100);
-        });  
+        $iniciar.addEventListener('click', event => {
+            event.preventDefault();
+            varRoulete();
+            clearInterval(startRoulette);
+            startRoulette = setInterval(roulette, 100);
+        });
 
-        var startRoulette;
+        let startRoulette;
 
-        function roulette() { 
-            if(n < 10 && stop != random){
+        function roulette() {
+            if (n < 10 && stop != random) {
                 [].map.call($content, function(v, index, array) {
-                    v.classList.remove("active");
-                    array[n].classList.add("active"); 
-                    document.querySelector("body").classList.remove("active");
-                    v.classList.remove("select");
-                }) 
+                    v.classList.remove('active');
+                    array[n].classList.add('active');
+                    document.querySelector('body').classList.remove('active');
+                    v.classList.remove('select');
+                });
                 n++;
-                stop++; 
+                stop++;
             } else {
                 n = 0;
                 finish();
             }
-        };  
+        }
 
+        
         function finish() {
-            if(stop == random) {
+            if (stop === random) {
                 const $select = document.querySelector('.wrapper-roulette ul .active');
-                setTimeout(function(){
-                    $select.classList.add("select");
-                    document.querySelector("body").classList.add("active");
-                }, 500)
+                const valor = parseInt($select.textContent.replace(/[^\d.-]/g, '')); // Obtém o valor da fatia selecionada
+
+                // Atualiza o saldo com base no valor da fatia
+                let saldoAtual = getSaldo();
+
+                // Verifica se o valor é positivo ou negativo para adicionar ou subtrair do saldo
+                if (valor > 0) {
+                saldoAtual += valor;
+                } else {
+                saldoAtual -= Math.abs(valor);
+                }
+
+                localStorage.setItem('saldo', saldoAtual); // Armazena o saldo atualizado
+
+                // Atualiza o saldo na página
+                atualizarSaldo();
+
+                setTimeout(function () {
+                $select.classList.add('select');
+                document.querySelector('body').classList.add('active');
+                }, 500);
+
+                clearInterval(startRoulette); // Para a roleta após a finalização
             }
         }
-        
     </script>
 </body>
 </html>

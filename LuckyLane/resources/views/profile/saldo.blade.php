@@ -46,46 +46,43 @@
     </div>
     
     <script>
-        const saldo = parseInt(getCookie('saldo')) || 0;
-        localStorage.setItem('saldo', saldo);
+        const saldo = parseInt(localStorage.getItem('saldo')) || 0;
 
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             const expires = "expires=" + d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
+            }
 
         function getCookie(cname) {
             const name = cname + "=";
             const decodedCookie = decodeURIComponent(document.cookie);
             const ca = decodedCookie.split(';');
             for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
+                let c = ca[i].trim(); // Remove os espaços em branco no início e no final da string
                 if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+                return c.substring(name.length, c.length);
                 }
             }
-            return "";
+        return "";
         }
 
         function adicionarSaldo() {
             const quantidade = parseInt(document.getElementById('saldoInput').value);
-            let saldoAtual = parseInt(getCookie('saldo')) || 0;
-            
-            if (!isNaN(quantidade)) {
+            let saldoAtual = parseInt(localStorage.getItem('saldo')) || 0;
+
+            if (!isNaN(quantidade) && quantidade > 0) {
                 saldoAtual += quantidade;
-                setCookie('saldo', saldoAtual, 365); // Armazena o saldo no cookie por 1 ano
+                localStorage.setItem('saldo', saldoAtual);
                 document.getElementById('saldo').innerText = 'Saldo: R$ ' + saldoAtual;
+                atualizarSaldo();
             }
         }
 
-        // Carrega o saldo armazenado no cookie ao carregar a página
+        // Carrega o saldo armazenado no localStorage ao carregar a página
         window.onload = function() {
-            const saldo = parseInt(getCookie('saldo')) || 0;
+            const saldo = parseInt(localStorage.getItem('saldo')) || 0;
             document.getElementById('saldo').innerText = 'Saldo: R$ ' + saldo;
         };
     </script>
