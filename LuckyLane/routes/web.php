@@ -21,8 +21,9 @@ return view('menu.menu');
 
 //Rotas jogos
 Route::get('jogos/roleta', function(){return view('jogos.roleta');})->name('roleta');
-Route::get('jogos/mines', function(){return view('jogos.mines');})->name('mines');
-Route::get('jogos/coinflip', function(){return view('jogos.coinflip');})->name('coinflip');
+Route::get('profile/saldo', function(){return view('profile.saldo');})->name('saldo');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

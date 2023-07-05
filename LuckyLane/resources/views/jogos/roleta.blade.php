@@ -13,6 +13,7 @@
         <h1><a href="{{ route('menu') }}" class="float">
                 LuckyLane
             </a></h1>
+            <div id="saldo">Saldo: R$ 0</div>
     </div>
     <main>
         <div class="fog"></div>
@@ -27,7 +28,7 @@
                     <li class="roulette-six"><span><b>+500 R$</b></span></li>
                     <li class="roulette-seven"><span><b>-200 R$</b></span></li>
                     <li class="roulette-eight"><span><b>+400R$</b></span></li>
-                    <li class="roulette-nine"><span><b>-400 R$</b></span></li>
+                    <li class="roulette-nine"><span><b>PLAYSTATION</b></span></li>
                     <li class="roulette-ten"><span><b>-150 R$</b></span></li>
 
                 </ul>
@@ -36,6 +37,30 @@
         </article>
     </main>
     <script>
+        // Função para obter o saldo atual do usuário
+        function getSaldo() {
+        // Faça uma requisição ao servidor para obter o saldo do usuário
+        // Aqui você pode substituir esta chamada com a lógica adequada para obter o saldo do usuário
+        const saldo = 9000; // Exemplo de saldo fixo
+
+        return saldo;
+        }
+
+        // Função para atualizar o saldo exibido no elemento
+        function atualizarSaldo() {
+        const $saldoElement = document.getElementById('saldo'); // Elemento onde o saldo será exibido
+
+        // Obtém o saldo atual
+        const saldo = getSaldo();
+
+        // Atualiza o valor exibido no elemento HTML
+        $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
+        $saldoElement.style.color = 'white';
+        }
+
+        // Chama a função de atualizar saldo para exibir o saldo inicial
+        atualizarSaldo();
+
         const $iniciar = document.querySelector('.start');
         const $content = document.querySelectorAll('.wrapper-roulette ul li');
 

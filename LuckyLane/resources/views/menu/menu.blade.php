@@ -29,20 +29,17 @@
                 </svg>
             </button>
         </a>
+        <a href="{{ route('saldo') }}">
+            <button>Saldo</button>
+        </a>
+        
     </div>
     <div class="main-container">
         <div class="card">
             <img src="{{ Vite::asset('resources/images/roleta.png') }}" alt="roleta" style="width:100%">
             <div class="container">
                 <h3>Roleta</h3>
-                <button><a href="{{ route('roleta') }}">Jogar</a></button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{{ Vite::asset('resources/images/coin.png') }}" alt="coin" style="width:100%">
-            <div class="container">
-                <h3>Coinflip</h3>
-                <button><a href="{{ route('coinflip') }}">Jogar</a></button>
+                <a href="{{ route('roleta') }}"><button>Jogar</button></a>
             </div>
         </div>
     </div>
