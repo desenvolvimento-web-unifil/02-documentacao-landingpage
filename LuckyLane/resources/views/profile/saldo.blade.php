@@ -8,14 +8,11 @@
     <title>Document</title>
     <style>
         body {
-            display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-        
-        .container {
-            text-align: center;
+            margin: 0;
+            padding: 0;
         }
         
         input[type="text"] {
@@ -44,37 +41,34 @@
     </div>
 
     <div class="container">
-        <input type="text" id="saldoInput" placeholder="Digite o valor do saldo">
+        <input type="number" id="saldoInput" placeholder="Digite o valor do saldo">
         <button onclick="adicionarSaldo()">Adicionar Saldo</button>
     </div>
     
-
     <script>
-
         // Função para obter o saldo atual do usuário
         function getSaldo() {
-        // Faça uma requisição ao servidor para obter o saldo do usuário
-        // Aqui você pode substituir esta chamada com a lógica adequada para obter o saldo do usuário
-        const saldo = 0; // Exemplo de saldo fixo
+            // Faça uma requisição ao servidor para obter o saldo do usuário
+            // Aqui você pode substituir esta chamada com a lógica adequada para obter o saldo do usuário
+            const saldo = parseFloat(document.getElementById('saldoInput').value) || 0;
 
-        return saldo;
+            return saldo;
         }
 
         // Função para atualizar o saldo exibido no elemento
         function atualizarSaldo() {
-        const $saldoElement = document.getElementById('saldo'); // Elemento onde o saldo será exibido
+            const $saldoElement = document.getElementById('saldo'); // Elemento onde o saldo será exibido
 
-        // Obtém o saldo atual
-        const saldo = getSaldo();
+            // Obtém o saldo atual
+            const saldo = getSaldo();
 
-        // Atualiza o valor exibido no elemento HTML
-        $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
-        $saldoElement.style.color = 'white';
+            // Atualiza o valor exibido no elemento HTML
+            $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
+            $saldoElement.style.color = 'white';
         }
 
         // Chama a função de atualizar saldo para exibir o saldo inicial
         atualizarSaldo();
-
     </script>
 </body>
 </html>
