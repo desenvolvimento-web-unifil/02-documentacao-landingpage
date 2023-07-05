@@ -61,7 +61,7 @@
         function getSaldo() {
         // Faça uma requisição ao servidor para obter o saldo do usuário
         // Aqui você pode substituir esta chamada com a lógica adequada para obter o saldo do usuário
-        const saldo = 0; // Exemplo de saldo fixo
+        const saldo = parseInt(localStorage.getItem('saldo')) || 0;// Exemplo de saldo fixo
 
         return saldo;
         }

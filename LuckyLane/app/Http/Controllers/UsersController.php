@@ -30,25 +30,24 @@ class UsersController extends Controller
         return redirect()->action([UsersController::class, 'index']);
     }
 
-    public function edit(User $user)
-    {        
-                
-        return view('users.edit', ['user' => $user]);
-    }
-
-    public function update(Request $request, User $user)
+    public function edit($id)
     {
-        $user->name =  $request->input('name');
-        $user->email = $request->input('email');
-        $user->save();
 
-        return redirect()->action([UsersController::class, 'index']);
+        $user = User::find($id);
+        return view('seu-template')->with('user', $user);
     }
+
+     public function update(Request $request, User $user)
+     {
+         $user->saldo = $request->input('saldo');
+         $user->save();
+
+         return redirect()->action([UsersController::class, 'index']);
+     }
 
     public function destroy(User $user)
     {
         $user->delete();
         return redirect()->action([UsersController::class, 'index']);
     }
-
 }

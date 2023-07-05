@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('email', 100);
             $table->string('password', 255);
             $table->string('name', 55);
-            $table->double('saldo', 10)->default(0.0);
             $table->timestamps(); // Adiciona as colunas 'updated_at' e 'created_at'
             $table->softDeletes();
         });

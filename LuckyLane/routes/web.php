@@ -22,6 +22,10 @@ return view('menu.menu');
 //Rotas jogos
 Route::get('jogos/roleta', function(){return view('jogos.roleta');})->name('roleta');
 Route::get('profile/saldo', function(){return view('profile.saldo');})->name('saldo');
+Route::put('profile/saldo/atualizar', [\App\Http\Controllers\UsuarioController::class, 'update'])->name('SaldoUpdate');
+Route::get('/users/{user}/edit', [UsersController::class, 'edit'])->name('users.edit');
+
+
 
 
 

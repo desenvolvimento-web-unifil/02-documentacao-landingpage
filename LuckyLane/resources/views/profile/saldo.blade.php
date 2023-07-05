@@ -46,29 +46,48 @@
     </div>
     
     <script>
-        // Função para obter o saldo atual do usuário
-        function getSaldo() {
-            // Faça uma requisição ao servidor para obter o saldo do usuário
-            // Aqui você pode substituir esta chamada com a lógica adequada para obter o saldo do usuário
-            const saldo = parseFloat(document.getElementById('saldoInput').value) || 0;
+        const saldo = parseInt(getCookie('saldo')) || 0;
+        localStorage.setItem('saldo', saldo);
 
-            return saldo;
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 
-        // Função para atualizar o saldo exibido no elemento
-        function atualizarSaldo() {
-            const $saldoElement = document.getElementById('saldo'); // Elemento onde o saldo será exibido
-
-            // Obtém o saldo atual
-            const saldo = getSaldo();
-
-            // Atualiza o valor exibido no elemento HTML
-            $saldoElement.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
-            $saldoElement.style.color = 'black';
+        function getCookie(cname) {
+            const name = cname + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
         }
 
-        // Chama a função de atualizar saldo para exibir o saldo inicial
-        atualizarSaldo();
+        function adicionarSaldo() {
+            const quantidade = parseInt(document.getElementById('saldoInput').value);
+            let saldoAtual = parseInt(getCookie('saldo')) || 0;
+            
+            if (!isNaN(quantidade)) {
+                saldoAtual += quantidade;
+                setCookie('saldo', saldoAtual, 365); // Armazena o saldo no cookie por 1 ano
+                document.getElementById('saldo').innerText = 'Saldo: R$ ' + saldoAtual;
+            }
+        }
+
+        // Carrega o saldo armazenado no cookie ao carregar a página
+        window.onload = function() {
+            const saldo = parseInt(getCookie('saldo')) || 0;
+            document.getElementById('saldo').innerText = 'Saldo: R$ ' + saldo;
+        };
     </script>
 </body>
 </html>
