@@ -85,13 +85,14 @@
             stop = 0;
             random = Math.floor(Math.random() * 50) + 10;
         }
-
-        $iniciar.addEventListener('click', event => {
+        
+            $iniciar.addEventListener('click', event => {
             event.preventDefault();
             varRoulete();
             clearInterval(startRoulette);
             startRoulette = setInterval(roulette, 100);
-        });
+            });
+        
 
         let startRoulette;
 

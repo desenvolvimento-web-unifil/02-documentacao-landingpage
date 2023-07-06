@@ -43,7 +43,7 @@
     <div>
         <input type="number" id="saldoInput" placeholder="Digite o valor do saldo">
         <button onclick="adicionarSaldo()">Adicionar Saldo</button>
-        <button onclick="subtrairSaldo()">Subtrair Saldo</button>
+        <button onclick="subtrairSaldo()">Sacar</button>
     </div>
     
     <script>
