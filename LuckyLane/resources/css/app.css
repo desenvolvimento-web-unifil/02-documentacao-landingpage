@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.cdnfonts.com/css/scripto');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #d3d6db;
+    justify-content: center;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    display: flex;
+    background-color: #303841;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 40px;
+    /* border: 1px solid red; */
+}
+
+.header a {
+    text-decoration: none;
+    color: #be3144;
+    font-family: 'Scripto', sans-serif;
+}
+
+.header h1{
+    margin: 0;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 270px;
+}
+
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    width: 90vw;
+    height: 80vh;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.main-container h3 {
+    margin: 10px;
+}
+
+.card {
+    background-color: #303841;
+    width: 25vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 1vw;
+    border-radius: 10px;
+}
+
+.container {
+    padding: 2px 16px;
+    background-color: #e7ebf0;
+}
+
+#saldo{
+    color: black;
+    padding-top: 10px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+button {
+    background-color: #be3144;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 2px #888888;
+    color: white;
+}
+
+button:hover {
+    background-color: #a32838;
+    color: white;
+}
+
+button:active {
+    background-color: #a32838;
+    box-shadow: none;
+    transform: translateY(2px);
+    color: white;
+}
+
+.fog {
+    background: url(../fog.png) repeat;
+    background-size: contain;
+    height: 100vh;
+    animation: fogAnimation 60s linear infinite;
+    position: absolute;
+    width: 5076px;
+    top: 0;
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    padding: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+
+
+main .wrapper-roulette {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    max-width: 100%;
+  }
+  
+  .main-container {
+    overflow-x: auto;
+  }
+
+  main .wrapper-roulette ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, #8c1d1d, #000000);
+    border-radius: 50%;
+    margin-top: 50px;
+}
+
+main .wrapper-roulette ul li{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 590px;
+    height: 70px;
+    border-radius: 38px;
+}
+
+main .wrapper-roulette ul li.active.select:after {
+    content: "";
+    background: url(../bullet2.png) no-repeat;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 40%;
+    background-size: 100%;
+    left: 140px;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+main .wrapper-roulette ul li.active {
+    background: #d3d6db;
+    z-index: 1;
+}
+
+.main-container .wrapper-roulette ul.finished li.active {
+    background: transparent;
+  }
+
+main .wrapper-roulette ul li.active.select {
+    transform: none;
+    font-size: 82px;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    animation: roleta 2s;
+}
+main .wrapper-roulette ul li.active.select span {
+    text-align: center;
+    padding: 0;
+}
+main .wrapper-roulette ul li.active.select span:after {
+    z-index: 0;
+    position: absolute;
+    background: url(../corte.png) no-repeat center;
+    width: 100%;
+    height: 100%;
+    content: "";
+    top: 0;
+    left: 0;
+    background-size: 50%;
+}
+
+li.roulette-one  {
+    transform: translateX(80px);
+}
+
+li.roulette-two  {
+    transform: rotate(36deg) translateX(90px);
+}
+li.roulette-three  {
+    transform: rotate(72deg) translate(80px, 7px);
+}
+li.roulette-four  {
+    transform: rotate(108deg) translate(80px, 4px);
+}
+li.roulette-five  {
+    transform: rotate(144deg) translate(80px, 4px);
+}
+li.roulette-six  {
+    transform: rotate(180deg) translate(80px, 4px);
+}
+li.roulette-seven  {
+    transform: rotate(216deg) translate(80px, 4px);
+}
+li.roulette-eight  {
+    transform: rotate(252deg) translate(80px, 4px);
+}
+li.roulette-nine  {
+    transform: rotate(288deg) translate(80px, 4px);
+}
+li.roulette-ten  {
+    transform: rotate(324deg) translate(80px, 4px);
+}
+
+main .wrapper-roulette ul li span {
+    color: #fff;
+    text-align: right;
+    width: 100%;
+    padding-right: 30px;
+}
+button.start {
+    background-color: #be3144;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 100px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 2px #888888;
+    color: white;
+}
+
+body:after {
+    content: "";
+    background: url(../dead.png) no-repeat;
+    width: 210px;
+    height: 220px;
+    position: absolute;
+    animation: none;
+    background-size: 100%;
+    top: 30px;
+    right: -71px;
+    transform: rotate3d(1, 2, 0, 150deg);
+    z-index: 1;
+    transform: rotate3d(1, 2, 0, 150deg) translateX(-110%);
+    z-index: 1;
+    transition: 2s ease;
+}
+body.active:after {
+    content: "";
+    transform: rotate3d(1, 2, 0, 150deg) translateX(0);
+}
+@keyframes roleta {
+    from {
+     font-size: 16px;   
+     background: transparent;
+    }
+   to {
+    font-size: 90px;   
+    background: #d3d6db;
+   }
+ }
+
+ @keyframes roletaimg {
+     from {
+         background-size: 150%; 
+     }
+     to {
+        background-size: 50%;
+     }
+ }
+
+ @keyframes fogAnimation {
+    0%{
+        transform: translate3d(0, 0, 0);
+    }
+    100%{
+        transform: translate3d(-1692px, 0, 0);
+    }
+ }
+ @keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
